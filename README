@@ -1,0 +1,6 @@
+A not working attempt to try to deploy a Drool Decsion Table example on AWS Lambda.
+I started from:
+1. https://github.com/natedennis/lambda-drools which deployes & works on AWS Lambda
+2. https://github.com/kiegroup/kogito-examples/tree/stable/kogito-quarkus-examples/decisiontable-quarkus-example - which runs fine locally
+
+The code buoilds and can be deployed to AWS Lambda, I just can't see evidence of the rules being invoked :-(

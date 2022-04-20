@@ -1,6 +1,14 @@
-A not working attempt to try to deploy a Drool Decsion Table example on AWS Lambda.
+A not working attempt to try to deploy a Drool Decsion Table example on AWS Lambda usinhg Quarkus native
 I started from:
 1. https://github.com/natedennis/lambda-drools which deployes & works on AWS Lambda
 2. https://github.com/kiegroup/kogito-examples/tree/stable/kogito-quarkus-examples/decisiontable-quarkus-example - which runs fine locally
 
-The code buoilds and can be deployed to AWS Lambda, I just can't see evidence of the rules being invoked :-(
+The code builds and can be deployed to AWS Lambda, I just can't see evidence of the rules being invoked :-(
+
+The build & deploymnet phases for my memory:
+
+mvn clean install -Dnative -Dquarkus.native.container-build=true
+sam package --template-file target/sam.native.yaml --output-template-file packaged-native.yaml --s3-bucket <your existing S3 nbucket>
+sam deploy --template-file /Users/stevef/Dev/chetwood/aws-kognio-demo1/decisiontable-quarkus-example/HelloWorldFunction/packaged-native.yaml --stack-name sjf2 --capabilities CAPABILITY_IAM
+
+I used a Function URL to access the Lambda 
